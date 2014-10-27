@@ -1,0 +1,47 @@
+//
+// Jumbotron
+// --------------------------------------------------
+
+
+.jumbotron {
+  padding: 5px 0;// @jumbotron-padding
+  margin-bottom: 0;
+  color: @jumbotron-color;
+  //background-color: @jumbotron-bg;
+  background: url(../../img/pattern-8kyx.png) repeat;
+
+  h1,
+  .h1 {
+    color: @jumbotron-heading-color;
+    margin: 0;
+    line-height: .8em;
+  }
+  p {
+    margin-bottom: (@jumbotron-padding / 2);
+    font-size: @jumbotron-font-size;
+    font-weight: 200;
+  }
+
+  .container & {
+    border-radius: @border-radius-large; // Only round corners at higher resolutions if contained in a container
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: @screen-sm-min) {
+    padding-top:    5px; // (@jumbotron-padding * 1.6);
+    padding-bottom: 5px; // (@jumbotron-padding * 1.6);
+
+    .container & {
+      padding-left:  0; // (@jumbotron-padding * 2);
+      padding-right: 0; // (@jumbotron-padding * 2);
+    }
+
+    h1,
+    .h1 {
+      font-size: (@font-size-base * 4.5);
+    }
+  }
+}

@@ -1,0 +1,1302 @@
+
+
+//
+// Load core variables and mixins
+// --------------------------------------------------
+
+@import "variables.less";
+@import "mixins.less";
+
+
+
+//
+// Buttons
+// --------------------------------------------------
+
+// Common styles
+.btn-default,
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger {
+  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+  @shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+  .box-shadow(@shadow);
+
+  // Reset the shadow
+  &:active,
+  &.active {
+    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  }
+}
+
+// Mixin for generating new styles
+.btn-styles(@btn-color: #555) {
+  #gradient > .vertical(@start-color: @btn-color; @end-color: darken(@btn-color, 12%));
+  .reset-filter(); // Disable gradients for IE9 because filter bleeds through rounded corners
+  background-repeat: repeat-x;
+  border-color: darken(@btn-color, 14%);
+
+  &:hover,
+  &:focus  {
+    background-color: darken(@btn-color, 12%);
+    background-position: 0 -15px;
+  }
+
+  &:active,
+  &.active {
+    background-color: darken(@btn-color, 12%);
+    border-color: darken(@btn-color, 14%);
+  }
+}
+
+// Common styles
+.btn {
+  // Remove the gradient for the pressed/active state
+  &:active,
+  &.active {
+    background-image: none;
+    box-shadow: none; // ELIMINADO EL GRADIENTE
+  }
+}
+
+// Apply the mixin to the buttons
+.btn-default { .btn-styles(@btn-default-bg); text-shadow: 0 0px 0 #fff; border-color: #ccc; }
+.btn-primary { .btn-styles(@btn-primary-bg); }
+.btn-success { .btn-styles(@btn-success-bg); }
+.btn-info    { .btn-styles(@btn-info-bg); }
+.btn-warning { .btn-styles(@btn-warning-bg); }
+.btn-danger  { .btn-styles(@btn-danger-bg); }
+
+
+
+//
+// Images
+// --------------------------------------------------
+
+.thumbnail,
+.img-thumbnail {
+  .box-shadow(0 1px 2px rgba(0,0,0,.075));
+}
+
+
+
+//
+// Dropdowns
+// --------------------------------------------------
+
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  // #gradient > .vertical(@start-color: @dropdown-link-hover-bg; @end-color: darken(@dropdown-link-hover-bg, 5%)); ELIMINADO PARA PONER AZULES ENLACES DROPDOWN
+  background-color: darken(@dropdown-link-hover-bg, 5%); 
+  background-color: @link-color;
+  color: white;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  // #gradient > .vertical(@start-color: @dropdown-link-active-bg; @end-color: darken(@dropdown-link-active-bg, 5%)); ELIMINADO
+  background-color: darken(@dropdown-link-active-bg, 5%);
+}
+
+.menu2 {
+  .dropdown-menu > li > a{
+    color: white;
+  }
+  .dropdown-menu > li > a:hover,
+  .dropdown-menu > li > a:focus {
+    background-color: black;
+    color: @gray-light;
+  }
+
+  li.dropdown.open {
+    .divider {
+      
+    }
+    background-color: @gray;
+  }
+
+.divider {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  }
+}
+
+
+//
+// Navbar
+// --------------------------------------------------
+
+// Default navbar
+.navbar-default {
+  // #gradient > .vertical(@start-color: lighten(@navbar-default-bg, 10%); @end-color: @navbar-default-bg);
+  .reset-filter(); // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered
+  border-radius: @navbar-border-radius;
+  @shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 5px rgba(0,0,0,.075);
+  //.box-shadow(@shadow); ELIMINADO
+
+  .navbar-nav > .active > a {
+    #gradient > .vertical(@start-color: darken(@navbar-default-bg, 5%); @end-color: darken(@navbar-default-bg, 2%));
+   .box-shadow(inset 0 3px 9px rgba(0,0,0,.075));
+  }
+}
+// .navbar-brand,
+// .navbar-nav > li > a {
+//   text-shadow: 0 1px 0 rgba(255,255,255,.25);
+// }
+
+// Inverted navbar
+.navbar-inverse {
+  #gradient > .vertical(@start-color: lighten(@navbar-inverse-bg, 10%); @end-color: @navbar-inverse-bg);
+  .reset-filter(); // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered
+
+  .navbar-nav > .active > a {
+    #gradient > .vertical(@start-color: @navbar-inverse-bg; @end-color: lighten(@navbar-inverse-bg, 2.5%));
+    //.box-shadow(inset 0 3px 9px rgba(0,0,0,.25));
+  }
+
+  .navbar-brand,
+  .navbar-nav > li > a {
+    // text-shadow: 0 -1px 0 rgba(0,0,0,.25); ELIMINADO
+  }
+}
+
+// Undo rounded corners in static and fixed navbars
+.navbar-static-top,
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  border-radius: 0;
+}
+
+
+
+//
+// Alerts
+// --------------------------------------------------
+
+// Common styles
+.alert {
+  text-shadow: 0 1px 0 rgba(255,255,255,.2);
+  @shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 1px 2px rgba(0,0,0,.05);
+  .box-shadow(@shadow);
+}
+
+// Mixin for generating new styles
+.alert-styles(@color) {
+  #gradient > .vertical(@start-color: @color; @end-color: darken(@color, 7.5%));
+  border-color: darken(@color, 15%);
+}
+
+// Apply the mixin to the alerts
+.alert-success    { .alert-styles(@alert-success-bg); }
+.alert-info       { .alert-styles(@alert-info-bg); }
+.alert-warning    { .alert-styles(@alert-warning-bg); }
+.alert-danger     { .alert-styles(@alert-danger-bg); }
+
+
+
+//
+// Progress bars
+// --------------------------------------------------
+
+// Give the progress background some depth
+.progress {
+  #gradient > .vertical(@start-color: darken(@progress-bg, 4%); @end-color: @progress-bg)
+}
+
+// Mixin for generating new styles
+.progress-bar-styles(@color) {
+  #gradient > .vertical(@start-color: @color; @end-color: darken(@color, 10%));
+}
+
+// Apply the mixin to the progress bars
+.progress-bar            { .progress-bar-styles(@progress-bar-bg); }
+.progress-bar-success    { .progress-bar-styles(@progress-bar-success-bg); }
+.progress-bar-info       { .progress-bar-styles(@progress-bar-info-bg); }
+.progress-bar-warning    { .progress-bar-styles(@progress-bar-warning-bg); }
+.progress-bar-danger     { .progress-bar-styles(@progress-bar-danger-bg); }
+
+
+
+//
+// List groups
+// --------------------------------------------------
+
+.list-group {
+  border-radius: @border-radius-base;
+  //.box-shadow(0 1px 2px rgba(0,0,0,.075)); ELIMINADO
+}
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  text-shadow: 0 -1px 0 darken(@list-group-active-bg, 10%);
+  #gradient > .vertical(@start-color: @list-group-active-bg; @end-color: darken(@list-group-active-bg, 7.5%));
+  border-color: darken(@list-group-active-border, 7.5%);
+}
+
+
+
+//
+// Panels
+// --------------------------------------------------
+
+// Common styles
+.panel {
+  .box-shadow(0 1px 2px rgba(0,0,0,.05));
+}
+
+// Mixin for generating new styles
+.panel-heading-styles(@color) {
+  #gradient > .vertical(@start-color: @color; @end-color: darken(@color, 5%));
+}
+
+// Apply the mixin to the panel headings only
+.panel-default > .panel-heading   { .panel-heading-styles(@panel-default-heading-bg); }
+.panel-primary > .panel-heading   { .panel-heading-styles(@panel-primary-heading-bg); }
+.panel-success > .panel-heading   { .panel-heading-styles(@panel-success-heading-bg); }
+.panel-info > .panel-heading      { .panel-heading-styles(@panel-info-heading-bg); }
+.panel-warning > .panel-heading   { .panel-heading-styles(@panel-warning-heading-bg); }
+.panel-danger > .panel-heading    { .panel-heading-styles(@panel-danger-heading-bg); }
+
+
+
+//
+// Wells
+// --------------------------------------------------
+
+.well {
+  #gradient > .vertical(@start-color: darken(@well-bg, 5%); @end-color: @well-bg);
+  border-color: darken(@well-bg, 10%);
+  @shadow: inset 0 1px 3px rgba(0,0,0,.05), 0 1px 0 rgba(255,255,255,.1);
+  .box-shadow(@shadow);
+}
+
+//
+// Mis cosas y variables
+// --------------------------------------------------
+
+@separador: 2px solid @gray-lighter;
+@caption-padding: 4px;
+
+body {
+  padding-top: 50px;
+}
+
+// .bloque-sangre {
+//   @media (min-width: @screen-sm-min) {
+//     margin-left: 50px;
+//   }
+// }
+
+
+a:hover {
+  text-decoration: none;
+}
+
+.menu2  {padding: 0;
+margin: 0;}
+
+//
+// Publicaciones ----------------------------------------
+
+.container-publi {
+  padding-left: 53px;
+  .ficha-publi {
+    padding: 10px;
+    .enlace-ficha {
+      display: block;
+      height: 250px;
+      border-radius: @border-radius-small;
+      padding: 10px;
+      background-color: @gray-dark;
+      color: white;
+      &:hover, &:focus {
+        text-decoration: none;
+        color: white;
+        background-color: @link-color;
+      }
+      dd.titulo-ficha-publi {
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+
+
+// a.catego-a:hover:before {
+//   background: rgba(96,116,133,0.5) url(/images/gris-transpa.png);
+// }
+
+// a.catego-a:active:before {
+//   background: rgba(213,238,211,0.52) url(/images/gris-transpa.png);
+// }
+
+
+
+//
+// botones ----------------------------------------
+
+.btn.normal {
+  background-color: @gray-superlighter;
+  border-radius: @border-radius-small;
+  color: @link-color-dark;
+}
+
+.btn.normal:hover {
+  background-color: @link-color;
+  color: white;
+}
+
+.btn:focus {
+  background-image: none;
+}
+
+//
+// Máscara Jumbo --------------------------------------------------
+//
+
+.jumbotron {
+  h1 {
+    position: relative;
+    left: -4px;
+    text-transform: uppercase;
+  }
+  .mascara {
+    margin-left: 50px;
+    overflow: hidden;
+    @media (min-width: @screen-md-min) {
+
+      h1 {
+        left: -7px;
+        }
+    }
+  }
+}
+
+
+//
+// Logotipo navegación
+// --------------------------------------------------
+
+
+  .navbar-principal {
+    min-height: 50px;
+    img {
+    height: 50px;
+    }
+    a:hover img {
+      opacity: 0.3;
+      transition-property: opacity;
+      transition-duration: .2s;
+    }
+
+  }
+
+
+
+//
+// Logotipo navegación PORTADA
+// --------------------------------------------------
+
+.portada {
+  @media (min-width: @screen-md-min) {
+    .navbar {
+      height: 100px;
+      img {
+      height: 100px;
+      }
+    }
+    .jumbotron {
+      margin-top: 50px;
+    }
+  }
+}
+
+//
+// navbar-principal ----------------------------------------
+
+
+.navbar-principal {
+  .navbar-right > li > a {
+    height: 50px;
+  }
+}
+
+.menu1 {
+  li.dropdown-header { //separador en el mismo dropdown
+    line-height: 1.1em;
+    @media (min-width: @screen-sm-min) {
+    background-color: @gray-lighter;
+    color: @gray;
+    }
+  }
+}
+
+// caret ---------
+
+.navbar-principal { 
+  a .caret.centro {
+  @media (min-width: @screen-sm-min) {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  display: block;
+
+  }
+}
+
+  // a:active .caret.centro {
+  //   border-top-color: white;
+  //   transition-property: all;
+  //   transition-duration: .5s;
+  // }
+}
+
+.navbar-principal .dropdown-menu:after {
+  position: absolute;
+  top: -6px;
+  right: 27px;
+  display: inline-block;
+  @media (min-width: @screen-sm-min) {
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid @dropdown-bg;
+    border-left: 6px solid transparent;
+    content: '';
+  }
+}
+
+.menu2 .dropdown-menu:after {
+  position: absolute;
+  top: -6px;
+  left: 27px;
+  display: inline-block;
+   @media (min-width: @screen-sm-min) {
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid @gray-dark;
+    border-left: 6px solid transparent;
+    content: '';
+    }
+  }
+
+.navbar-inverse { //eliminar gradiente se repite para quitar vendor prefixes
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+}
+
+// .navbar li > a {
+//   text-shadow: 0 0 rgba(255, 255, 255, 0);
+// }
+
+
+//
+// navbar-edicion ----------------------------------------
+.menu2 .dropdown-menu {
+  background-color: @gray-dark;
+  top: 120%;
+}
+
+.navbar-edicion .container {
+  button.navbar-toggle {
+    margin-right: 15px;
+  }
+  margin: 0;
+  padding: 0;
+  @media (min-width: @screen-sm-min) {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+
+
+//
+// blog ----------------------------------------
+
+
+div.blog-post:first-child {
+    border-top-width: 0px;
+}
+
+
+
+
+  .blog-post {
+    padding-bottom: @grid-gutter-width;
+    border-top: 5px solid @gray-lighter;
+
+    p, h1, h2, h3 {
+      @media (min-width: @screen-sm-min) {
+        text-indent: 50px;
+      }
+    }
+
+    .pie-de-foto {
+      @media (min-width: @screen-sm-min) {
+        padding-left: 50px;
+      }
+    }
+
+    ul, ol {
+      margin-left: 50px;
+      padding: 0;
+    }
+
+    .leer-mas {
+      margin-left: 50px;
+    }
+
+
+    blockquote {
+
+      margin-left: 50px;
+      p {
+        text-indent: 0px;
+      }
+    }
+  }
+
+.caption {
+  background-color: @gray-lighter;
+  margin: 0;
+  color: @gray;
+  font-size: .8em;
+  padding: @caption-padding;
+  .border-bottom-radius(5px);
+  text-indent: 0;
+}
+
+
+blockquote {
+  padding-top: 3em;
+  background-color: @link-color;
+  border: 0;
+  border-radius: @border-radius-base;
+  color: white;
+  &:before {
+    display: block;
+    content: "”";
+    font-size: 5em;
+    line-height: 0.1em;
+  }
+}
+
+.blog-post-meta {
+  text-transform: uppercase;
+  // font-weight: bold;
+  font-size: 0.8em;
+  color: @gray-light;
+  border-bottom: 1px dotted @gris-claro;
+  border-top: 1px dotted @gris-claro;
+}
+
+.pie-de-foto {
+  display:inline-block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+//
+// blog comentarios ----------------------------------------
+.comentarios {
+    h3 {
+      color: black;
+      margin-bottom: 1em;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 1.5em;
+      color: @gray-light;
+      padding-bottom: 0.5em;
+      border-bottom: 2px solid @gray-lighter;
+    }
+  .comentario {
+    background-color: @comentarios-bg;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 1em;
+    padding: 10px;
+    border-radius: @border-radius-small;
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.post-comentario {
+  margin-top: 2em;
+  textarea {
+    &:active, &:focus {
+      background-color: @link-color;
+      color: white;
+    }
+  }
+  .form-control {
+    border: none;
+    border-radius: 2px;
+  }
+}
+
+//
+// blog formulario comentarios ----------------------------------------
+
+.post-comentario {
+  label {
+    color: white;
+  }
+  .form-group {
+    margin-bottom: .5em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  padding: 0.5em;
+  background-color: @gray-dark;
+  border-radius: @border-radius-small;
+  .form-group, .form-horizontal {
+    margin-right: 0;
+    margin-left: 0;
+    .col-sm-10 {
+      padding: 0;
+    }
+  }
+}
+
+
+
+
+//
+// blog sidebar ----------------------------------------
+
+.blog-sidebar{
+  border-radius: @border-radius-small;
+  margin-top: @grid-gutter-width;
+  background-color: @gray-superlighter;
+  padding: @grid-gutter-width;
+  input {
+    border: 0;
+  }
+  h4, ol {
+    margin: 0;
+  }
+  .archivos ol {
+    width: 100%;
+      li a {
+    padding: 3px 12px;
+  }
+  }
+
+}
+
+.dropdown-archivos {
+  display: block;
+  width: 100%;
+  background-color: @gray-light;
+  border-radius: @border-radius-small;
+  margin-top: 20px;
+  text-align: left;
+
+  span {
+    padding: 0 !important;
+  }
+  &:active, &:focus {
+    background-color: @link-color;
+    color: white;
+  }
+}
+
+   .archivos ol.dropdown-menu {
+    max-height: 400px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+
+.ulti-coment {
+  background-color: white;
+  padding: 12px;
+  margin-top: 20px;
+  border-radius: @border-radius-small;
+  ol {
+    margin-top: 5px;
+  }
+  li {
+    border-top: 1px solid @gris-claro;
+
+    &:first-child {
+      border-top: 0px;
+    }
+    a {
+      display: block;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+  }
+}
+
+
+
+
+//
+// forms ----------------------------------------
+
+input:focus {
+  background-color: @link-color;
+  color: white;
+}
+
+
+// cambio de color placeholder en focus-----------
+
+input:focus::-webkit-input-placeholder {
+    color: white;
+}
+/* Firefox < 19 */
+input:focus:-moz-placeholder {
+    color: white;
+}
+/* Firefox > 19 */
+input:focus::-moz-placeholder {
+    color: white;
+}
+/* Internet Explorer 10 */
+input:focus:-ms-input-placeholder {
+    color: white;
+}
+
+
+//
+// mis botones --------------------------------------------------
+
+.pager li {
+  a {
+    border: 0;
+    background-color: @gray-lighter;
+    color: @gray;
+      &:hover, &:active {
+        background-color: @link-color;
+        color: white;
+      }
+  }
+}
+
+//mixin boton normal
+.btn-normal {
+  background-color: @gray-superlighter;
+  border-radius: @border-radius-small;
+ &:hover {
+  background-color: @link-color;
+  color: white;
+ }
+}
+
+
+//
+// autores --------------------------------------------------
+
+.container-fluid {
+  padding: 0;
+  .list-unstyled {
+    li {
+      margin-top: .5em;
+      a {
+      .flecha {
+        display: block;
+        float: left;
+        position: relative;
+        top: .2em;
+      } 
+      display: block;
+      font-size: 1.3em;
+      color: @gray;
+      background-color: @gray-superlighter;
+      padding-top: .2em;
+      padding-bottom: .2em;
+      @media (min-width: @screen-sm-min) {
+        font-size: 1.8em;
+      }
+      &:hover, &:focus, &:active {
+        background-color: @link-color;
+        color: white;
+      }
+      p {
+        margin: 0;
+       }
+     }
+    }
+    .glyphicon-arrow-right {
+      width: 50px;
+      float: left;
+    }
+  }
+}
+
+
+//
+// curriculo --------------------------------------------------
+.container-curri {
+  padding-top: 20px;
+  .curri-intro {
+    padding-left: 62px;
+    .curri-datos {
+      p {
+        margin: 0;
+        padding-top: 2px;
+        padding-bottom: 2x;
+        border-top: solid 1px @gray-lighter;
+        text-transform: uppercase;
+        color: @gray-light;
+        font-size: .8em;
+        &:last-child {
+          border-bottom: solid 1px @gray-lighter;
+        }
+      }
+    }
+    .obra-en-ma {
+      margin-bottom: 20px;
+      a {
+        margin-top: 10px;
+        padding: 10px;
+        display: block;
+        background-color: @comentarios-bg;
+        color: black;
+        border-radius: @border-radius-small;
+        &:hover {
+          background-color: @link-color;
+          color: white;
+          h4 {
+            border-bottom: solid 1px white;
+          }
+        }
+        p {
+          font-size: 2em;
+          line-height: 1.1em;
+        }
+        h4 {
+          display: block;
+          border-bottom: solid 1px black;
+          margin-top: 0;
+          font-size: .8em;
+          text-transform: uppercase;
+          font-weight: bold;
+          letter-spacing: 1px;
+          padding-bottom: 2px;
+        }
+        p {
+          margin: 0;
+        }
+      }
+    } 
+  }
+  .curri-curri {
+    h4 {
+      display: block;
+      border-bottom: dotted 1px black;
+      margin-top: 0;
+      font-size: .8em;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding-bottom: 2px;
+    }
+    .curri-anio, .curri-nombre, .curri-epigrafe, .curri-lista {
+      padding-left: 62px;
+      @media (min-width: @screen-md-min) {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+//
+// curriculo simple ------------------------------------------------
+
+.container-curri-simple {
+  .curri-intro {
+    p {
+    font-size: 1.5em !important;
+    }
+    a {
+      margin-top: 0 !important;
+    }
+  }
+  .curri-curri {
+    margin-left: 50px;
+    @media (min-width: @screen-md-min) {
+      margin-left: 0;
+    }
+  }
+}
+
+//
+// Intervenciones --------------------------------------------------
+
+.container-interv {
+  .tipo-ul {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em;
+    .tipo-li {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: .5em;
+      margin-bottom: .5em;
+      margin-top: .5em;
+      @media (min-width: @screen-sm-min) {
+        border-bottom: @separador;
+      }
+      button {
+        .btn-normal; // aplicamos mixin
+      }
+      a {
+        font-size: 1.3em;
+      }
+      .nombre {
+        font-weight: bold;
+        margin-bottom: .3em;
+        }
+      }
+      .titulo {
+        font-style: italic;
+      }
+      .titulo, .nombre {
+        border-left: 4px solid @gray-light;
+        @media (min-width: @screen-sm-min) {
+        border-left: none;
+      }
+
+    }
+  }
+}
+
+//
+// Textos --------------------------------------------------
+
+@altura-linea-textos: 1.3em;
+
+.container-textos {
+  .item, .cabecera-textos {
+    margin: 0;
+    font-size: 1.3em;
+    .datos-item-textos {
+      * {padding: 0;}
+      margin-left: 50px;
+      border-left: 2px solid @gray;
+      padding-left: .5em;
+      padding-right: 0;
+      float: none;
+      min-height: 1em;
+      width: inherit;
+      a {
+        display: block;
+      }
+    }
+    .flecha {
+      font-size: 2em;
+      float: left;
+      width: 50px;
+    } 
+    p {
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      font-size: .5em;
+      line-height: 2em;
+      margin: 5px 0 0;
+    }
+    .titulo-textos {
+      font-style: italic;
+    }
+  }
+
+  .cabecera-textos {
+      display: none;
+    }
+
+  @media (min-width: @screen-sm-min) {
+
+    .item {
+      border-top: 1px solid @gray-light;
+      padding-top: .2em;
+      padding-bottom: .2em;
+      .datos-item-textos {
+        border-left: 0 !important;
+        padding-left: 0;
+        .titulo-textos {
+          padding-right: .5em;
+        }
+      }
+      .flecha {
+        font-size: 1em !important;
+      }
+      .label-textos {
+      display: none;
+     }
+    }
+    .datos-item-textos {
+        border-left: 0 !important;
+        padding-left: 0 !important;
+      }
+    .cabecera-textos {
+      display: block;
+    }
+  }
+  .item {
+    margin-top: 1em;
+  }
+  
+}
+
+//
+// Intervencion individual --------------------------------------------------
+
+.container-intervencion {
+  .cont-interven {
+      margin-bottom: 2em;
+    }
+  .datos-intervencion {
+    margin-bottom: 2em;
+    h1 {
+      margin-top: 0;
+    }
+    .autor {
+      a {
+        font-size: 2em;
+        font-style: italic; 
+      }
+    }
+  }
+
+   @media (min-width: @screen-md-min) {
+    .datos-intervencion {
+      padding-left: 64px;
+    }
+  }
+
+
+  .pie-mapa {
+    margin-top: 1em;
+    .map-maker {
+      font-size: 3em;
+      padding: 0;
+    }
+    .datos-mapa {
+      .etiqueta {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: .8em;
+        margin: 0;
+      }
+    }
+  }
+}
+
+
+//
+// Audiovisual --------------------------------------------------
+
+.datos-audiovisual {
+  p {
+    font-size: 1.3em;
+    margin-bottom: 1.3em;
+  }
+}
+
+.cont-audiovisual {
+  margin-bottom: 2em;
+  margin-top: 2em;
+  @media (min-width: @screen-sm-min) {
+    margin-top: 0;
+  }
+  .tipo-li {
+    border-top: @separador;
+    padding: 0;
+    &:first-child {
+      @media (min-width: @screen-sm-min) {
+        border-top: none;
+      }
+      
+    }
+    a {
+      font-size: 1.3em;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      &.nombre {
+        font-weight: bold;
+      }
+      &.titulo {
+        font-style: italic;
+      }
+    }
+  }
+}
+
+@media (min-width: @screen-md-min) {
+    .datos-audiovisual {
+      padding-left: 64px;
+    }
+  }
+
+  //
+  // Audiovisual individual
+  // depende de intervencion individual ---------------------------
+
+  //
+  // contacto ---------------------------
+
+.container-contacto {
+  .row-contacto {
+    border-bottom: 1px solid #000000;
+    .item {
+      padding: 0;
+      .flecha {
+        margin-left: 15px;
+        padding: 0;
+        font-size: 1.5em;
+
+        width: 50px;
+      }
+      .datos {
+        margin-left: 65px;
+      }
+      @media (min-width: @screen-sm-min) {
+        .flecha {
+          margin: 0;
+        }
+                .datos {
+          margin-left: 50px;
+        }
+      }
+    }
+  }
+}
+
+  //
+  // Programa ---------------------------
+
+  .container-programa {
+    .row.item {
+      background-color: @gray-superlighter;
+      margin-bottom: 1em;
+      padding-left: 50px;
+      padding-bottom: 1em;
+      h3 {
+        text-transform: uppercase;
+      }
+        p {
+          margin: 0;
+        }
+      a {
+        color: @link-color-dark;
+        &:hover {
+          color: @link-hover-color-dark;
+        } 
+      }
+      @media (min-width: @screen-sm-min) {
+        padding-left: 75px;
+      }
+    }
+  }
+
+//
+// mesas ---------------------------
+
+.container-mesas {
+  .row-mesas {
+    margin: 0;
+    .fecha {
+      text-transform: uppercase;
+    }
+    .titulo-mesa {
+      display: block;
+      color: @link-color-dark;
+      background-color: @gray-lighter;
+      padding-left: 50px;
+      margin-bottom: 4px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      margin-bottom: 1em;
+      &:hover {
+        color: white;
+        background-color: @link-color;
+        p {
+          color: white;
+        }
+      }
+      h4 {
+        text-transform: uppercase;
+        margin-bottom: 0;
+      }
+      p {
+        color: @gray;
+        text-transform: uppercase;
+      }
+    }
+    .epigrafe {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: .8em;
+    }
+    ul {
+      padding-left: 0;
+      li {
+        list-style-type: none;
+        a {
+          display: block;
+          color: @link-color-dark;
+          // background-color: @gray-lighter;
+          padding-left: 50px;
+          padding-top: 2px;
+          padding-bottom: 2px;
+          &:hover {
+            color: white;
+            background-color: @link-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+//
+// mesa individual ---------------------------
+
+.container-mesa {
+  .metadatos{
+    h5 {
+      display: block;
+      padding: 4px;
+      padding-left: 7px;
+      background-color: @comentarios-bg;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white;
+    }
+    .horario {
+      text-transform: uppercase;
+      color: @gray-light;
+      border-bottom: 1px solid @gray-light;
+      border-top: 1px solid @gray-light;
+      padding-bottom: 2px;
+    }
+    .epigrafe {
+      text-transform: uppercase;
+      font-size: .7em;
+    }
+    p {
+      color: @gray-light;
+    }
+  }
+}

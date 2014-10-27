@@ -1,0 +1,86 @@
+<!--#include virtual="head.html" --> 
+<body>
+
+<!--#include virtual="navegacion.html" --> 
+
+
+      <div class="jumbotron">
+        <div class="container">
+          <div class="mascara">
+            <h1><strong>Noticias</strong></h1>
+          </div>
+        </div>
+      </div>
+
+<div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-sm-6 col-lg-4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!--/span-->
+
+
+          </div><!--/row-->
+        </div><!--/span-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+            <div class="sidebar-module">
+              <form class="" role="search">
+                <input type="text" class="form-control" placeholder="Buscar...">
+              </form>
+            </div>
+
+          <div class="sidebar-module">
+            <h4>Archivos</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">Marzo 2014</a></li>
+              <li><a href="#">Febrero 2014</a></li>
+              <li><a href="#">Enero 2014</a></li>
+              <li><a href="#">Diciembre 2013</a></li>
+              <li><a href="#">Noviembre 2013</a></li>
+              <li><a href="#">Octubre 2013</a></li>
+              <li><a href="#">Septiembre 2013</a></li>
+              <li><a href="#">Agosto 2013</a></li>
+              <li><a href="#">Julio 2013</a></li>
+              <li><a href="#">Junio 2013</a></li>
+              <li><a href="#">Mayo 2013</a></li>
+              <li><a href="#">Abril 2013</a></li>
+            </ol>
+          </div>
+
+          <div class="sidebar-module">
+            <h4>Últimos comentarios</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">Pepito Pérez</a> en <a href="#">Nombre de la entrada</a></li>
+              <li><a href="#">Pepito Pérez</a> en <a href="#">Nombre de la entrada</a></li>
+              <li><a href="#">Pepito Pérez</a> en <a href="#">Nombre de la entrada</a></li>
+              <li><a href="#">Pepito Pérez</a> en <a href="#">Nombre de la entrada</a></li>
+              <li><a href="#">Pepito Pérez</a> en <a href="#">Nombre de la entrada</a></li>
+              <li><a href="#">Pepito Pérez</a> en <a href="#">Nombre de la entrada</a></li>
+              <li><a href="#">Pepito Pérez</a> en <a href="#">Nombre de la entrada</a></li>
+              <li><a href="#">Pepito Pérez</a> en <a href="#">Nombre de la entrada</a></li>
+            </ol>
+          </div>
+      </div><!--/row-->
+
+    </div><!--/.container-->
+
+<!--#include virtual="javascript.html" --> 
+<script>
+$(document).ready(function () {
+  $('[data-toggle="offcanvas"]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
+});</script>
+
+</body>
+</html>
