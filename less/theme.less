@@ -1300,3 +1300,38 @@ input:focus:-ms-input-placeholder {
     }
   }
 }
+
+//
+// créditos ---------------------------
+
+.container-creditos {
+
+  text-transform: uppercase;
+  .curri-intro {
+    p {
+      padding: .5em;
+      background-color: @gray-lighter;
+    }
+  }
+  .curri-cont {
+    padding-left: 50px;
+    .bloque {
+      margin-bottom: 2em;
+      li {
+        text-align: center;
+      }
+      .etiqueta-logo{
+        border-radius: @border-radius-small;
+        font-size: .7em;
+        display: block;
+        background-color: @gray-lighter;
+        padding: 4px;
+        color: @link-color-dark;
+        &:hover {
+          background-color: @link-color;
+          color: white;
+        }
+      }
+    }
+  }
+}

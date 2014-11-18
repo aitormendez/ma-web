@@ -1147,4 +1147,32 @@ input:focus:-ms-input-placeholder {
 .container-mesa .metadatos p {
   color: #999999;
 }
+.container-creditos {
+  text-transform: uppercase;
+}
+.container-creditos .curri-intro p {
+  padding: .5em;
+  background-color: #eeeeee;
+}
+.container-creditos .curri-cont {
+  padding-left: 50px;
+}
+.container-creditos .curri-cont .bloque {
+  margin-bottom: 2em;
+}
+.container-creditos .curri-cont .bloque li {
+  text-align: center;
+}
+.container-creditos .curri-cont .bloque .etiqueta-logo {
+  border-radius: 3px;
+  font-size: .7em;
+  display: block;
+  background-color: #eeeeee;
+  padding: 4px;
+  color: #9185fd;
+}
+.container-creditos .curri-cont .bloque .etiqueta-logo:hover {
+  background-color: #beb7fe;
+  color: white;
+}
 /*# sourceMappingURL=bootstrap-theme.css.map */
