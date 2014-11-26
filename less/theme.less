@@ -392,16 +392,26 @@ margin: 0;}
       transition-property: opacity;
       transition-duration: .2s;
     }
-
   }
 
 
 
 //
-// Logotipo navegación PORTADA
+// PORTADA
 // --------------------------------------------------
-
+@altura-jumbo: 208px;
 .portada {
+  .jumbotron {
+    padding: 0;
+    height: @altura-jumbo;
+    text-transform: uppercase;
+    .mascara {
+      height: @altura-jumbo;
+      p {
+        line-height: 26px;
+      }
+    }
+  }
   @media (min-width: @screen-md-min) {
     .navbar {
       height: 100px;
@@ -411,8 +421,47 @@ margin: 0;}
     }
     .jumbotron {
       margin-top: 50px;
+      .mascara {
+        margin-left: 100px;
+      }
     }
   }
+  .container-portada {
+    margin-top: 1em;
+    padding-left: 50px;
+    @media (min-width: @screen-md-min) {
+      padding-left: 100px;
+    }
+    .destacado {
+      padding: 10px;
+      .enlace-destacado {
+        overflow: hidden;
+        padding: .5em;
+        display: block;
+        color: @gray-dark;
+        background-color: @gray-lighter;
+        border-radius: @border-radius-base;
+        img {
+          border-radius: @border-radius-small;
+        }
+        h4 {
+          margin-top: 0;
+          font-size: 1em;
+          @media (min-width: @screen-md-min) {
+            font-size: 1.3em;
+          }
+        }
+        &:hover {
+          background-color: @link-color;
+          color: white;
+          img {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 //
@@ -822,7 +871,7 @@ input:focus:-ms-input-placeholder {
         display: block;
         float: left;
         position: relative;
-        top: .2em;
+        top: .1em;
       } 
       display: block;
       font-size: 1.3em;
@@ -1064,6 +1113,24 @@ input:focus:-ms-input-placeholder {
   }
   
 }
+
+
+//
+// Texto individual --------------------------------------------------
+
+.container-texto{
+  .cabecera-texto {
+    h3 {
+      font-style: italic;
+      font-size: 1.5em;
+      margin: 0;
+    }
+  }
+  .cont-texto {
+    margin-top: 1.6em;
+  }
+}
+
 
 //
 // Intervencion individual --------------------------------------------------
@@ -1353,4 +1420,16 @@ input:focus:-ms-input-placeholder {
   margin-bottom: 1em;
   text-shadow: none;
   background-image: none;
+}
+
+//
+// resultado de busqueda ---------------------------
+
+.jumbotron {
+  .container-busqueda {
+    padding-left: 65px;
+    .form-control {
+      border: none;
+    }
+  }
 }

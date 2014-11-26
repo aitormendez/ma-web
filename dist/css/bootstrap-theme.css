@@ -400,6 +400,17 @@ a:hover {
   transition-property: opacity;
   transition-duration: .2s;
 }
+.portada .jumbotron {
+  padding: 0;
+  height: 208px;
+  text-transform: uppercase;
+}
+.portada .jumbotron .mascara {
+  height: 208px;
+}
+.portada .jumbotron .mascara p {
+  line-height: 26px;
+}
 @media (min-width: 992px) {
   .portada .navbar {
     height: 100px;
@@ -410,6 +421,48 @@ a:hover {
   .portada .jumbotron {
     margin-top: 50px;
   }
+  .portada .jumbotron .mascara {
+    margin-left: 100px;
+  }
+}
+.portada .container-portada {
+  margin-top: 1em;
+  padding-left: 50px;
+}
+@media (min-width: 992px) {
+  .portada .container-portada {
+    padding-left: 100px;
+  }
+}
+.portada .container-portada .destacado {
+  padding: 10px;
+}
+.portada .container-portada .destacado .enlace-destacado {
+  overflow: hidden;
+  padding: .5em;
+  display: block;
+  color: #333333;
+  background-color: #eeeeee;
+  border-radius: 4px;
+}
+.portada .container-portada .destacado .enlace-destacado img {
+  border-radius: 3px;
+}
+.portada .container-portada .destacado .enlace-destacado h4 {
+  margin-top: 0;
+  font-size: 1em;
+}
+@media (min-width: 992px) {
+  .portada .container-portada .destacado .enlace-destacado h4 {
+    font-size: 1.3em;
+  }
+}
+.portada .container-portada .destacado .enlace-destacado:hover {
+  background-color: #beb7fe;
+  color: white;
+}
+.portada .container-portada .destacado .enlace-destacado:hover img {
+  opacity: 0.5;
 }
 .navbar-principal .navbar-right > li > a {
   height: 50px;
@@ -732,7 +785,7 @@ input:focus:-ms-input-placeholder {
   display: block;
   float: left;
   position: relative;
-  top: .2em;
+  top: .1em;
 }
 @media (min-width: 768px) {
   .container-fluid .list-unstyled li a {
@@ -963,6 +1016,14 @@ input:focus:-ms-input-placeholder {
 .container-textos .item {
   margin-top: 1em;
 }
+.container-texto .cabecera-texto h3 {
+  font-style: italic;
+  font-size: 1.5em;
+  margin: 0;
+}
+.container-texto .cont-texto {
+  margin-top: 1.6em;
+}
 .container-intervencion .cont-interven {
   margin-bottom: 2em;
 }
@@ -1190,5 +1251,11 @@ input:focus:-ms-input-placeholder {
   margin-bottom: 1em;
   text-shadow: none;
   background-image: none;
+}
+.jumbotron .container-busqueda {
+  padding-left: 65px;
+}
+.jumbotron .container-busqueda .form-control {
+  border: none;
 }
 /*# sourceMappingURL=bootstrap-theme.css.map */
