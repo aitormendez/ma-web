@@ -476,6 +476,15 @@ a:hover {
     color: #555555;
   }
 }
+.menu1 .glyphicon {
+  font-size: .9em;
+}
+.menu1 .dropdown-buscar {
+  right: -15px;
+}
+.menu1 .buscar {
+  margin: 1em;
+}
 @media (min-width: 768px) {
   .navbar-principal a .caret.centro {
     margin-left: auto;
@@ -1257,5 +1266,42 @@ input:focus:-ms-input-placeholder {
 }
 .jumbotron .container-busqueda .form-control {
   border: none;
+}
+.container-busqueda .row-busqueda {
+  border-bottom: none;
+}
+@media (min-width: 768px) {
+  .container-busqueda .row-busqueda {
+    border-bottom: 1px solid #000;
+  }
+}
+.container-busqueda .row-busqueda .item {
+  padding-top: .5em !important;
+}
+.container-busqueda .row-busqueda .item .categoria {
+  padding: 0;
+  margin-top: 5px;
+}
+.container-busqueda .row-busqueda .item .categoria p {
+  text-transform: uppercase;
+  color: white;
+  background-color: #555555;
+  padding: 3px;
+  font-size: .8em;
+  font-weight: bold;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .container-busqueda .row-busqueda .item .categoria p {
+    border-radius: 3px;
+    padding-left: 5px;
+    display: inline;
+  }
+}
+.container-busqueda .row-busqueda .item h3 {
+  margin-top: 0;
+}
+.container-busqueda .row-busqueda .item .datos {
+  margin: 0 !important;
 }
 /*# sourceMappingURL=bootstrap-theme.css.map */
