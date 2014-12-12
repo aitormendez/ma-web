@@ -545,39 +545,28 @@ a:hover {
     padding-right: 15px;
   }
 }
-div.blog-post:first-child {
+.blog-main-post {
+  margin-left: 50px;
+}
+.blog-main .blog-post {
+  padding-bottom: 30px;
+  border-top: 1px solid black;
+  margin: 0;
+}
+.blog-main .blog-post:first-child {
   border-top-width: 0px;
 }
-.blog-post {
-  padding-bottom: 30px;
-  border-top: 5px solid #eeeeee;
+.blog-main .blog-post .blog-post-contenido {
+  padding: 0;
+  margin-left: 50px;
 }
-@media (min-width: 768px) {
-  .blog-post p,
-  .blog-post h1,
-  .blog-post h2,
-  .blog-post h3 {
-    text-indent: 50px;
-  }
-}
-@media (min-width: 768px) {
-  .blog-post .pie-de-foto {
-    padding-left: 50px;
-  }
-}
-.blog-post ul,
-.blog-post ol {
+.blog-main .blog-post ul,
+.blog-main .blog-post ol {
   margin-left: 50px;
   padding: 0;
 }
-.blog-post .leer-mas {
+.blog-main .blog-post blockquote {
   margin-left: 50px;
-}
-.blog-post blockquote {
-  margin-left: 50px;
-}
-.blog-post blockquote p {
-  text-indent: 0px;
 }
 .caption {
   background-color: #eeeeee;
@@ -613,6 +602,9 @@ blockquote:before {
   display: inline-block;
   margin-top: 1em;
   margin-bottom: 1em;
+}
+.pagination-blog {
+  margin-left: 50px;
 }
 .comentarios h3 {
   color: black;
@@ -678,6 +670,14 @@ blockquote:before {
 .post-comentario .form-group .col-sm-10,
 .post-comentario .form-horizontal .col-sm-10 {
   padding: 0;
+}
+.post-comentario .enviar {
+  margin-top: 10px;
+  background-color: #eeeeee;
+}
+.post-comentario .enviar:hover {
+  background-color: #beb7fe;
+  color: white;
 }
 .blog-sidebar {
   border-radius: 3px;
@@ -1233,26 +1233,16 @@ input:focus:-ms-input-placeholder {
   padding: .5em;
   background-color: #eeeeee;
 }
-.container-creditos .curri-cont {
-  padding-left: 50px;
+.container-creditos .curri-cont .col-logo {
+  min-height: 100px;
 }
-.container-creditos .curri-cont .bloque {
-  margin-bottom: 2em;
+.container-creditos .curri-cont .credi-epigrafe {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #000;
 }
-.container-creditos .curri-cont .bloque li {
-  text-align: center;
-}
-.container-creditos .curri-cont .bloque .etiqueta-logo {
-  border-radius: 3px;
-  font-size: .7em;
-  display: block;
-  background-color: #eeeeee;
-  padding: 4px;
-  color: #9185fd;
-}
-.container-creditos .curri-cont .bloque .etiqueta-logo:hover {
-  background-color: #beb7fe;
-  color: white;
+.container-creditos .curri-cont a:hover {
+  opacity: 0.3;
 }
 .alert {
   border: none;

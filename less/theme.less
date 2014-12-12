@@ -583,29 +583,35 @@ margin: 0;}
 
 
 //
-// blog ----------------------------------------
+// blog noticias----------------------------------------
 
-
-div.blog-post:first-child {
-    border-top-width: 0px;
+.blog-main-post {
+margin-left: 50px;
 }
 
-
-
+.blog-main {
 
   .blog-post {
     padding-bottom: @grid-gutter-width;
-    border-top: 5px solid @gray-lighter;
+    border-top: 1px solid black;
+    margin: 0;
 
-    p, h1, h2, h3 {
-      @media (min-width: @screen-sm-min) {
-        text-indent: 50px;
-      }
+    &:first-child {
+      border-top-width: 0px;
+    }
+
+    .container {
+
+    }
+
+    .blog-post-contenido {
+      padding: 0;
+      margin-left: 50px;
     }
 
     .pie-de-foto {
       @media (min-width: @screen-sm-min) {
-        padding-left: 50px;
+
       }
     }
 
@@ -615,19 +621,17 @@ div.blog-post:first-child {
     }
 
     .leer-mas {
-      margin-left: 50px;
+      
     }
-
 
     blockquote {
 
       margin-left: 50px;
       p {
-        text-indent: 0px;
       }
     }
   }
-
+}
 .caption {
   background-color: @gray-lighter;
   margin: 0;
@@ -666,6 +670,10 @@ blockquote {
   display:inline-block;
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.pagination-blog{
+  margin-left: 50px;
 }
 
 
@@ -738,6 +746,15 @@ blockquote {
     margin-left: 0;
     .col-sm-10 {
       padding: 0;
+    }
+  }
+
+  .enviar {
+    margin-top: 10px;
+    background-color: @gray-lighter;
+    &:hover {
+      background-color: @link-color;
+      color: white;
     }
   }
 }
@@ -1402,24 +1419,16 @@ input:focus:-ms-input-placeholder {
     }
   }
   .curri-cont {
-    padding-left: 50px;
-    .bloque {
-      margin-bottom: 2em;
-      li {
-        text-align: center;
-      }
-      .etiqueta-logo{
-        border-radius: @border-radius-small;
-        font-size: .7em;
-        display: block;
-        background-color: @gray-lighter;
-        padding: 4px;
-        color: @link-color-dark;
-        &:hover {
-          background-color: @link-color;
-          color: white;
-        }
-      }
+    .col-logo {
+      min-height: 100px;
+    }
+    .credi-epigrafe {
+      margin-top: 2em;
+      margin-bottom: 1em;
+      border-bottom: 1px solid #000;
+    }
+    a:hover {
+      opacity: 0.3;
     }
   }
 }
