@@ -635,6 +635,7 @@ blockquote:before {
 }
 .post-comentario {
   margin-top: 2em;
+  margin-bottom: 150px;
 }
 .post-comentario textarea:active,
 .post-comentario textarea:focus {
@@ -672,7 +673,6 @@ blockquote:before {
   padding: 0;
 }
 .post-comentario .enviar {
-  margin-top: 10px;
   background-color: #eeeeee;
 }
 .post-comentario .enviar:hover {
